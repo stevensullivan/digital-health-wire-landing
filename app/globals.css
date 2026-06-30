@@ -1,0 +1,299 @@
+:root {
+  /* The Bio Wire palette (theme.css custom props) */
+  --primary: #069a4e; /* -600 */
+  --primary-700: #056f39;
+  --primary-900: #033f21;
+  --neutral-100: #f5f7fa;
+  --neutral-200: #e4e7eb;
+  --neutral-400: #9aa5b1;
+  --neutral-600: #616e7c;
+  --neutral-700: #52606d;
+  --neutral-900: #323f4b;
+  --ink: #2f3033;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px;
+  background: linear-gradient(180deg, #f5f7fa 0%, #cbd2d9 100%);
+}
+
+.hero-inner {
+  width: 100%;
+  max-width: 520px;
+  text-align: center;
+}
+
+.logo {
+  width: 210px;
+  max-width: 72%;
+  margin: 0 auto 28px;
+  display: block;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 5vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 12px;
+}
+
+h1 .accent {
+  color: var(--primary);
+}
+
+.tagline {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--neutral-700);
+  margin: 0 auto 24px;
+}
+
+.perks {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  justify-content: center;
+  padding: 0;
+  margin: 0 0 28px;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.perks li {
+  display: flex;
+  align-items: center;
+}
+
+.perks li::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: var(--primary-900)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")
+    center / 12px no-repeat;
+}
+
+/* ---- Form ---- */
+.subscribe-form {
+  text-align: left;
+}
+
+.subscribe-form input:not([type="checkbox"]) {
+  width: 100%;
+  height: 52px;
+  padding: 0 16px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-family: inherit;
+  color: var(--neutral-700);
+  background: #fff;
+  border: 2px solid var(--neutral-400);
+  border-radius: 4px;
+}
+
+.subscribe-form input:not([type="checkbox"])::placeholder {
+  color: var(--neutral-600);
+}
+
+.subscribe-form input:not([type="checkbox"]):focus {
+  outline: none;
+  border-color: var(--primary-700);
+}
+
+.email-step input {
+  margin-bottom: 12px;
+}
+
+.submit {
+  position: relative;
+  width: 100%;
+  height: 52px;
+  border: 0;
+  border-radius: 4px;
+  background: var(--primary-900);
+  color: #fff;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: background 0.15s;
+}
+
+.submit:hover:not(:disabled) {
+  background: #02301a;
+}
+
+.submit:disabled {
+  cursor: default;
+}
+
+/* loading spinner inside the button (from the original theme) */
+.submit.loading {
+  color: transparent;
+}
+
+.submit.loading::before {
+  content: "";
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  border-color: #fff transparent;
+  animation: spinner 0.8s ease infinite;
+}
+
+@keyframes spinner {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+.step-note {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+  text-align: center;
+  margin: 0 0 20px;
+}
+
+/* ---- Cross-subscribe cards ---- */
+.cross {
+  border: 0;
+  padding: 0;
+  margin: 8px 0 0;
+}
+
+.cross legend {
+  width: 100%;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+  text-align: left;
+  margin: 24px 0 16px;
+  padding: 0;
+}
+
+.cross-card {
+  margin-bottom: 16px;
+}
+
+.cross-card input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cross-card label {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: #fff;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  padding: 20px 22px;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(50, 63, 75, 0.06);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.cross-card input:checked + label {
+  border-color: var(--primary);
+  box-shadow: 0 6px 18px rgba(6, 154, 78, 0.15);
+}
+
+.cross-card input:focus-visible + label {
+  border-color: var(--primary);
+}
+
+.cross-logo {
+  flex: 0 0 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cross-info {
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: left;
+}
+
+.cross-name {
+  display: block;
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.cross-desc {
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  color: var(--neutral-600);
+  margin-top: 4px;
+}
+
+.cross-check {
+  flex: 0 0 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--neutral-400);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.cross-card input:checked + label .cross-check {
+  border-color: var(--primary);
+  background: var(--primary)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")
+    center / 14px no-repeat;
+}
+
+.confirmation {
+  font-size: 1.1875rem;
+  font-weight: 700;
+  color: var(--primary-700);
+  text-align: center;
+  margin: 8px 0 0;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 14px;
+  margin: 12px 0 0;
+  text-align: center;
+}
