@@ -61,6 +61,7 @@ export async function POST(req) {
       email,
       audienceIds: [...new Set([MAIN_AUDIENCE_ID, ...extra])],
       mergeFields: {
+        X_SIGNUP: 'thebiowire.com',
         FNAME: clean(body.firstName),
         LNAME: clean(body.lastName),
         COMPANY: clean(body.company),
