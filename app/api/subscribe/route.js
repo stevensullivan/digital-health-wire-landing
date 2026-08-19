@@ -2,10 +2,10 @@ import { cookies, headers } from "next/headers";
 
 const WEBHOOK_URL =
   process.env.WEBHOOK_URL ||
-  "https://n8n-production-9091.up.railway.app/webhook/update-subscriber";
+  "https://n8n.insight-links.com/webhook/update-subscriber";
 
 // Mailchimp audience this landing page subscribes people to (The Bio Wire).
-const MAIN_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID || "4d630702b1";
+const MAIN_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID || "4d96e06f03";
 
 // Cross-subscribe audience ids offered in SubscribeForm. Allowlisted so the
 // endpoint can't be used to push arbitrary audiences. Keep in sync with the form.
